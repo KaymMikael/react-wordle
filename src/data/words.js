@@ -1,4 +1,4 @@
-export const fiveLetterWords = [
+const fiveLetterWords = [
   "Apple",
   "Brave",
   "Chase",
@@ -20,3 +20,8 @@ export const fiveLetterWords = [
   "Shape",
   "Trust",
 ];
+
+export const getRandomWord = () => {
+  const randomNumber = Math.round(Math.random() * (fiveLetterWords.length - 1));
+  return fiveLetterWords[randomNumber];
+};

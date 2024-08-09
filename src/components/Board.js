@@ -1,51 +1,16 @@
 import React from "react";
 import Square from "./Square";
 
-const Board = () => {
-  return (    
+const Board = ({ userGuessList, randomWord }) => {
+  return (
     <div className="board">
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="row">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
+      {userGuessList.map((guess) => (
+        <div key={guess.id} className="row">
+          {guess.word.split("").map((letter, i) => (
+            <Square key={i} letter={letter}  randomWord={randomWord} guess={guess}/>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
